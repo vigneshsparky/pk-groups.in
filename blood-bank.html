@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank | PK Group of Companies</title>
+    <link rel="shortcut icon" href="images/pk-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/blood-bank.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Canvas Background Animation -->
+    <canvas id="backgroundCanvas"></canvas>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/+917010704215?text=Hi%20PK%20Group%2C%20I%20need%20blood%20donation%20details"
+        class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="images/pk-logo.png" alt="head-logo" width="40" height="40">
+                    <span>PK GROUP</span>
+                </a>
+
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="work-with-team.html" class="nav-link">Work With Us</a>
+                    <a href="franchise-enquire.html" class="nav-link">Franchise</a>
+                    <a href="investors.html" class="nav-link">Investors</a>
+                    <a href="blood-bank.html" class="nav-link active">Blood Bank</a>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@ungalnanpanooty2862/videos" target="_blank"
+                            class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/ooty_special_shopping" target="_blank" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://ootyshopping.in/" target="_blank" class="social-icon"><i
+                                class="fas fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="blood-bank-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title"><i class="fas fa-tint blood-icon"></i> PK Group Blood Bank</h1>
+                <p class="hero-subtitle">A single drop of blood can save a life. Find donors or register as a donor in
+                    Tamil Nadu.</p>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3 id="totalDonors">0</h3>
+                        <p>Registered Donors</p>
+                    </div>
+                    <div class="stat">
+                        <h3>38</h3>
+                        <p>Districts Covered</p>
+                    </div>
+                    <div class="stat">
+                        <h3>8</h3>
+                        <p>Blood Groups</p>
+                    </div>
+                    <div class="stat">
+                        <h3>24/7</h3>
+                        <p>Emergency Service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Options Section -->
+    <section class="blood-options-section">
+        <div class="container">
+            <h2 class="section-title">Blood Bank Services</h2>
+            <p class="section-subtitle">Choose an option to continue</p>
+
+            <div class="options-grid">
+                <!-- Option 1: Know Blood Details -->
+                <div class="option-card">
+                    <div class="option-icon blood-option-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Find Blood Donors</h3>
+                    <p>Search for available blood donors by district and blood group. Emergency contacts for urgent
+                        requirements.</p>
+                    <a href="#search-blood" class="btn btn-primary">Search Now <i class="fas fa-search"></i></a>
+                </div>
+
+                <!-- Option 2: Add new Blood Details -->
+                <div class="option-card highlighted">
+                    <div class="option-icon blood-option-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Register as Donor</h3>
+                    <p>Join our lifesaving mission. Register your details to help others in need. Your information
+                        saves lives.</p>
+                    <a href="#register-donor" class="btn btn-primary">Register Now <i class="fas fa-user-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Blood Section -->
+    <section id="search-blood" class="search-blood-section">
+        <div class="container">
+            <h2 class="section-title">Find Blood Donors</h2>
+            <p class="section-subtitle">Search by district and blood group</p>
+
+            <div class="search-form">
+                <div class="form-group">
+                    <label for="searchDistrict"><i class="fas fa-map-marker-alt"></i> Select District</label>
+                    <select id="searchDistrict" class="form-control">
+                        <option value="">Select District</option>
+                        <!-- Districts will be populated by JavaScript -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="searchBloodGroup"><i class="fas fa-tint"></i> Select Blood Group</label>
+                    <select id="searchBloodGroup" class="form-control">
+                        <option value="">Select Blood Group</option>
+                        <option value="A+">A Positive (A+)</option>
+                        <option value="A-">A Negative (A-)</option>
+                        <option value="B+">B Positive (B+)</option>
+                        <option value="B-">B Negative (B-)</option>
+                        <option value="O+">O Positive (O+)</option>
+                        <option value="O-">O Negative (O-)</option>
+                        <option value="AB+">AB Positive (AB+)</option>
+                        <option value="AB-">AB Negative (AB-)</option>
+                    </select>
+                </div>
+
+                <button id="searchBtn" class="btn btn-primary search-btn">
+                    <i class="fas fa-search"></i> Search Donors
+                </button>
+            </div>
+
+            <!-- Search Results -->
+            <div id="searchResults" class="search-results">
+                <h3>Search Results</h3>
+                <div class="results-container" id="resultsContainer">
+                    <p class="no-results">Select district and blood group to search for donors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Register Donor Section -->
+    <section id="register-donor" class="register-donor-section">
+        <div class="container">
+            <h2 class="section-title">Register as Blood Donor</h2>
+            <p class="section-subtitle">Fill in your details to join our donor network</p>
+
+            <div class="registration-form">
+                <form id="donorRegistrationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="donorName"><i class="fas fa-user"></i> Full Name *</label>
+                            <input type="text" id="donorName" class="form-control" required
+                                placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorAge"><i class="fas fa-birthday-cake"></i> Age *</label>
+                            <input type="number" id="donorAge" class="form-control" required min="18" max="65"
+                                placeholder="18-65 years">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="donorBloodGroup"><i class="fas fa-tint"></i> Blood Group *</label>
+                            <select id="donorBloodGroup" class="form-control" required>
+                                <option value="">Select Blood Group</option>
+                                <option value="A+">A Positive (A+)</option>
+                                <option value="A-">A Negative (A-)</option>
+                                <option value="B+">B Positive (B+)</option>
+                                <option value="B-">B Negative (B-)</option>
+                                <option value="O+">O Positive (O+)</option>
+                                <option value="O-">O Negative (O-)</option>
+                                <option value="AB+">AB Positive (AB+)</option>
+                                <option value="AB-">AB Negative (AB-)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorPhone"><i class="fas fa-phone"></i> Phone Number *</label>
+                            <input type="tel" id="donorPhone" class="form-control" required
+                                placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donorDistrict"><i class="fas fa-map-marker-alt"></i> District *</label>
+                        <select id="donorDistrict" class="form-control" required>
+                            <option value="">Select District</option>
+                            <!-- Districts will be populated by JavaScript -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donorLocation"><i class="fas fa-location-dot"></i> Specific Location (Optional)</label>
+                        <input type="text" id="donorLocation" class="form-control"
+                            placeholder="Town, Area, or Landmark">
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="termsAgreement" required>
+                        <label for="termsAgreement">
+                            I agree to share my contact details with people in need of blood donation
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="emergencyContact" required>
+                        <label for="emergencyContact">
+                            I'm willing to be contacted in emergency situations
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary submit-btn">
+                        <i class="fas fa-heart"></i> Register as Donor
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blood Compatibility Info -->
+    <section class="compatibility-section">
+        <div class="container">
+            <h2 class="section-title">Blood Compatibility Chart</h2>
+            <p class="section-subtitle">Understanding blood group compatibility for donations</p>
+
+            <div class="compatibility-grid">
+                <div class="compatibility-card">
+                    <h4><span class="blood-group">A+</span> Can Donate To</h4>
+                    <p>A+, AB+</p>
+                    <h4><span class="blood-group">A+</span> Can Receive From</h4>
+                    <p>A+, A-, O+, O-</p>
+                </div>
+
+                <div class="compatibility-card">
+                    <h4><span class="blood-group">B+</span> Can Donate To</h4>
+                    <p>B+, AB+</p>
+                    <h4><span class="blood-group">B+</span> Can Receive From</h4>
+                    <p>B+, B-, O+, O-</p>
+                </div>
+
+                <div class="compatibility-card">
+                    <h4><span class="blood-group">O+</span> Can Donate To</h4>
+                    <p>O+, A+, B+, AB+</p>
+                    <h4><span class="blood-group">O+</span> Can Receive From</h4>
+                    <p>O+, O-</p>
+                </div>
+
+                <div class="compatibility-card">
+                    <h4><span class="blood-group">AB+</span> Can Donate To</h4>
+                    <p>AB+</p>
+                    <h4><span class="blood-group">AB+</span> Can Receive From</h4>
+                    <p>All Blood Types</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section class="emergency-section">
+        <div class="container">
+            <div class="emergency-content">
+                <div class="emergency-icon">
+                    <i class="fas fa-ambulance"></i>
+                </div>
+                <div class="emergency-text">
+                    <h2>Emergency Blood Requirement?</h2>
+                    <!-- <p>Call our 24/7 emergency helpline for immediate assistance</p> -->
+                    <a href="tel:7010704215" class="btn emergency-btn">
+                        <i class="fas fa-phone"></i> Emergency Call: 7010704215
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PK Group Blood Bank</h3>
+                    <p>Saving lives through voluntary blood donations across Tamil Nadu.</p>
+                    <div class="footer-social">
+                        <a href="https://www.youtube.com/@ungalnanpanooty2862/videos" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/ooty_special_shopping" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://ootyshopping.in/" target="_blank"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#search-blood">Find Donors</a></li>
+                        <li><a href="#register-donor">Register as Donor</a></li>
+                        <li><a href="#compatibility">Blood Compatibility</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Blood Groups</h4>
+                    <ul>
+                        <li>A Positive (A+)</li>
+                        <li>B Positive (B+)</li>
+                        <li>O Positive (O+)</li>
+                        <li>AB Positive (AB+)</li>
+                        <li>All Negative Types</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Emergency Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone-alt"></i> 7010704215</p>
+                        <p><i class="fas fa-envelope"></i> bloodbank@pkgroup.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Tamil Nadu, India</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 PK Group Blood Bank. All Rights Reserved. | Saving Lives Together</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification -->
+    <div class="notification" id="bloodNotification">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <div class="notification-text">
+                <h4 id="notificationTitle">Success!</h4>
+                <p id="notificationMessage">Your action was completed successfully.</p>
+            </div>
+            <button class="notification-close" id="notificationClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/canvas-animation.js"></script>
+    <script src="js/blood-bank.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
