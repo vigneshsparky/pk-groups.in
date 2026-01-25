@@ -1239,6 +1239,42 @@ body {
     }
 }
 
+
+/* Add to existing style.css */
+
+/* Blood Bank specific additions */
+.blood-group {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #a93226, #c0392b);
+}
+
+.section-title {
+    color: #c0392b;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
 @media (max-width: 576px) {
     .hero-title {
         font-size: 1.8rem;
@@ -1532,4 +1568,5 @@ body {
 /* Prevent body scroll when modal is open */
 body.modal-open {
     overflow: hidden;
+
 }
